@@ -1,12 +1,14 @@
 
 import React from 'react'
+import Accusition from './components/calculator/Accusition'
+import Maintenance from "./components/calculator/Maintenance";
+// import {BrowserRouter,Route,Switch} from 'react-router-dom'
 
 const App = () => {
   return (
 		<div>
-			<h1>
-				hello world
-			</h1>
+			<Accusition/>
+			<Maintenance/>
 		</div>
 	)
 }
