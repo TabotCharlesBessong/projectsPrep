@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Real Estate Rental Price Prediction</title>
+  <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h2 id="main_heading">Real Estate Rental Price Prediction</h2>
+
+<div class="login-page">
+  <div class="form">
+    <h3>Please fill the following property details:</h3>
+    <form class="login-form" action="/predict" method="POST">
+      <input name="id" type="number" class="input_text" placeholder="House unique ID" required>
+      <input name="url" type="text" class="input_text" placeholder="House Listing URL">
+      <input name="region" type="text" class="input_text" placeholder="Region Name (only in US)">
+      <input name="region_url" type="text" class="input_text" placeholder="Region URL">
+      
+      <label>House Type</label>
+        <select name="type" class="input_text" required>
+          <option value="apartment">apartment</option>
+          <option value="house">house</option>
+          <option value="townhouse">townhouse</option>
+          <option value="condo">condo</option>
+          <option value="duplex">duplex</option>
+          <option value="manufactured">manufactured</option>
+          <option value="cottage/cabin">cottage/cabin</option>
+          <option value="loft">loft</option>
+          <option value="flat">flat</option>
+          <option value="in-law">in-law</option>
+          <option value="land">land</option>
+          <option value="assisted living ">assisted living </option>
+        </select>
+
+
+
+      <input name="sqfeet" type="number" min="50" max="4200" step="any" class="input_text" placeholder="House Area (in sq.feet)" required>
+      <input name="beds" type="number" min="1" max="6" step="1" class="input_text" placeholder="BHK (number of beds)" required>
+      <input name="baths" type="number" min="1" max="3.5" step="0.5" class="input_text" placeholder="Number of bathrooms" required>
+      <hr>
+
+
+      <h4>Accessibility</h4>
+
+      <span class="binary_label"><label>Are Cats Allowed?</label></span>
+      <label for="cats_allowed_yes">
+        <input class="radio-inline" type="radio" id="cats_allowed_yes" name="cats_allowed" value="1" checked="true">Yes
+      </label>
+      <label for="cats_allowed_no">
+        <input class="radio-inline" type="radio" id="cats_allowed_no" name="cats_allowed" value="0">No
+      </label><br><br><br><br><br>
+
+      <span class="binary_label"><label>Are Dogs Allowed?</label></span>
+      <label for="dogs_allowed_yes">
+        <input class="radio-inline" type="radio" id="dogs_allowed_yes" name="dogs_allowed" value="1" checked="true">Yes
+      </label>
+      <label for="dogs_allowed_no">
+        <input class="radio-inline" type="radio" id="dogs_allowed_no" name="dogs_allowed" value="0">No
+      </label><br><br>
+
+       <span class="binary_label"><label>Is Smoking Allowed?</label></span>
+      <label for="smoking_allowed_yes">
+        <input class="radio-inline" type="radio" id="smoking_allowed_yes" name="smoking_allowed" value="1" checked="true">Yes
+      </label>
+      <label for="smoking_allowed_no">
+        <input class="radio-inline" type="radio" id="smoking_allowed_no" name="smoking_allowed" value="0">No
+      </label><br><br>
+
+      <span class="binary_label"><label>Is Wheelchair Accessible?</label></span>
+      <label for="wheelchair_access_yes">
+        <input class="radio-inline" type="radio" id="wheelchair_access_yes" name="wheelchair_access" value="1" checked="true">Yes
+      </label>
+      <label for="wheelchair_access_no">
+        <input class="radio-inline" type="radio" id="wheelchair_access_no" name="wheelchair_access" value="0">No
+      </label><br><br>
+
+      <span class="binary_label"><label>Have Electric Vehicle Charging?</label></span>
+      <label for="ev_charge_yes">
+        <input class="radio-inline" type="radio" id="ev_charge_yes" name="electric_vehicle_charge" value="1" checked="true">Yes
+      </label>
+      <label for="ev_charge_no">
+        <input class="radio-inline" type="radio" id="ev_charge_no" name="electric_vehicle_charge" value="0">No
+      </label><br><br>
+
+       <span class="binary_label"><label>Is Property Furnished?</label></span>
+      <label for="comes_furnished_yes">
+        <input class="radio-inline" type="radio" id="comes_furnished_yes" name="comes_furnished" value="1" checked="true">Yes
+      </label>
+      <label for="comes_furnished_no">
+        <input class="radio-inline" type="radio" id="comes_furnished_no" name="comes_furnished" value="0">No
+      </label><br><br> 
+      <hr>
+
+      <label>Laundary Options</label>
+        <select name="laundry_options" class="input_text" required>
+          <option value="no laundry on site">no laundry on site</option>
+          <option value="w/d in unit ">w/d in unit </option>
+          <option value="w/d hookups">w/d hookups</option>
+          <option value="laundry on site">laundry on site</option>
+          <option value="laundry in bldg">laundry in bldg</option>        
+        </select>
+
+      <label>Parking Options</label>
+        <select name="parking_options" class="input_text" required>
+          <option value="no parking">no parking</option>
+          <option value="off-street parking">off-street parking</option>
+          <option value="carport">carport</option>
+          <option value="attached garage">attached garage</option>
+          <option value="detached garage">detached garage</option>
+          <option value="street parking">street parking</option>          
+          <option value="valet parking">valet parking</option>
+        </select>
+
+      <input name="image_url" type="text" class="input_text" placeholder="House Image URL">
+      <textarea name="description" class="input_text" rows="4" cols="50" placeholder="Description (Enter description about the Property)"></textarea>
+      <input name="lat" type="number" min="19.50139" max="64.85694" step="any" class="input_text" placeholder="Latitude (only US)" required>
+      <input name="long" type="number" min="-161.75583" max="-68.01197" step="any" class="input_text" placeholder="Longitude (only US)" required>
+
+      <label>State</label>
+        <select name="state" class="input_text" required>
+          <option value="ca">ca</option>
+          <option value="fl">fl</option>
+          <option value="nc">nc</option>
+          <option value="mi">mi</option>
+          <option value="ga">ga</option>
+          <option value="co">co</option>
+          <option value="ny">ny</option>
+          <option value="il">il</option>
+          <option value="ks">ks</option>
+          <option value="ia">ia</option>
+          <option value="mn">mn</option>
+          <option value="md">md</option>
+          <option value="la">la</option>
+          <option value="az">az</option>
+          <option value="oh">oh</option>
+          <option value="in">in</option>
+          <option value="al">al</option>
+          <option value="nj">nj</option>
+          <option value="ky">ky</option>
+          <option value="ms">ms</option>
+          <option value="ma">ma</option>
+          <option value="id">id</option>
+          <option value="ct">ct</option>
+          <option value="nd">nd</option>
+          <option value="ar">ar</option>
+          <option value="nm">nm</option>
+          <option value="nv">nv</option>
+          <option value="ne">ne</option>
+          <option value="dc">dc</option>
+          <option value="ak">ak</option>
+          <option value="mo">mo</option>
+          <option value="de">de</option>
+          <option value="hi">hi</option>
+          <option value="nh">nh</option>
+          <option value="mt">mt</option>
+          <option value="me">me</option>
+          <option value="ok">ok</option>
+          <option value="or">or</option>          
+        </select>
+
+
+      <button>Predict</button>
+      <h3 class="message">Have "csv" data? <a href="#">Predict multiple</a></h3>
+
+      <h3>{{predicted_value}}</h3>
+      <h4>{{any_message}}</h4>
+
+    </form>
+
+
+    <form class="register-form" id="upload-form" action="/predict_multiple" method="POST">
+      <div id="multipage_rules">
+        <h3>Rules:</h3>
+        <ul>
+          <li>Upload multiple houses data in ".csv" format.</li>
+          <li><a href="https://github.com/blurred-machine/Real-Estate-Rental-Pricing-Prediction/blob/master/my_test.csv">Sample data can be downloaded from here.</a></li>
+          <li>Internet connectivity is required!</li>
+          <li>Please verify the data with the sample file. It should have same column names.</li>
+          <li>Enjoy Renting!</li>
+        </ul>
+      </div>
+      <input type="file" class="input_text" name="file_upload" id="txtFileUpload" accept=".csv" required />
+      <button>Predict Multiple</button>
+      <div class="hr">
+        <div id="result_val" style="line-height: 0em; height: 0em; overflow: hidden;">
+        {{predicted_value_multi}}
+        </div>
+        <h3>
+        {{any_message_multi}}
+        </h3>
+        <br>
+      </div>
+      <br>
+
+      <script>
+            function JSON2CSV(objArray) {
+                var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                var str = '';
+                var line = '';
+
+                if ($("#labels").is(':checked')) {
+                    var head = array[0];
+                    if ($("#quote").is(':checked')) {
+                        for (var index in array[0]) {
+                            var value = index + "";
+                            line += '"' + value.replace(/"/g, '""') + '",';
+                        }
+                    } else {
+                        for (var index in array[0]) {
+                            line += index + ',';
+                        }
+                    }
+
+                    line = line.slice(0, -1);
+                    str += line + '\r\n';
+                }
+
+                for (var i = 0; i < array.length; i++) {
+                    var line = '';
+
+                    if ($("#quote").is(':checked')) {
+                        for (var index in array[i]) {
+                            var value = array[i][index] + "";
+                            line += '"' + value.replace(/"/g, '""') + '",';
+                        }
+                    } else {
+                        for (var index in array[i]) {
+                            line += array[i][index] + ',';
+                        }
+                    }
+
+                    line = line.slice(0, -1);
+                    str += line + '\r\n';
+                }
+                return str;
+            }
+
+
+            function download(text) {
+                // var element = document.createElement('a');
+                // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                // element.setAttribute('download', 'cardio_predictions.txt');
+                // element.style.display = 'none';
+                // document.body.appendChild(element);
+                // element.click();
+                // document.body.removeChild(element);
+
+                var json = $.parseJSON(text);
+              var csv = JSON2CSV(json);
+              var downloadLink = document.createElement("a");
+              var blob = new Blob(["\ufeff", csv]);
+              var url = URL.createObjectURL(blob);
+              downloadLink.href = url;
+              downloadLink.download = "house_rent_predictions.csv";
+
+              document.body.appendChild(downloadLink);
+              downloadLink.click();
+              document.body.removeChild(downloadLink);
+            }
+
+              var my_text = document.getElementById("result_val").innerText;  
+              console.log("mmt: "+my_text)
+              if(/\S/.test(my_text)){
+                var res = confirm("Download final Prediction?\nThe file will be downloaded in txt format with house id and predicted rent price. \n\n{{any_message_multi}}");
+                if(res){
+                  download(my_text);
+                }
+              } 
+      </script>
+
+
+
+      <h3 class="message">Have single input? <a href="#">Predict single</a></h3>
+
+
+        
+
+    </form>
+
+
+
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+
+</body>
+</html>
