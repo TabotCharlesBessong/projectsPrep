@@ -4,7 +4,7 @@
 **Github URL: https://github.com/quintuslabs/dashio-admin
 */
 
-import Chart from "chart.js";
+import {Chart} from "chart.js";
 
 Chart.defaults.LineWithLine = Chart.defaults.line;
 Chart.controllers.LineWithLine = Chart.controllers.line.extend({

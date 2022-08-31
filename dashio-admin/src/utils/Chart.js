@@ -4,10 +4,11 @@
  **Github URL: https://github.com/quintuslabs/dashio-admin
  */
 
-import Chart from "chart.js";
+import {Chart} from "chart.js";
 
 Chart.defaults.LineWithLine = Chart.defaults.line;
-Chart.controllers.LineWithLine = Chart.controllers.line.extend({
+console.log(Chart.defaults.controller, "hello");
+Chart.controllers.LineWithLine = Chart.controllers.line.extend ({
   draw(ease) {
     Chart.controllers.line.prototype.draw.call(this, ease);
 
