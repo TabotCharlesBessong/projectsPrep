@@ -3,7 +3,8 @@ import './App.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import {FiSettings} from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-import { Sidebar } from './components'
+import { Card, Sidebar, Stacked } from './components'
+import { Area, Bar, Calendar, ColorMapping, ColorPicker, Customers, Ecommerce, Editor, Employee, Financial, Kanban, Line, Order, Pie, Pyramid } from './pages'
 
 const App = () => {
   const [activeMenu,setActiveMenu] = useState(true)
@@ -50,31 +51,29 @@ const App = () => {
 						<Routes>
 							{/* dashbaords */}
 							<Route path="/" component={Sidebar} />
-							<Route path="/ecommerce" component="employee" />
+							<Route path="/ecommerce" component={Ecommerce}/>
 
 							{/* pages */}
-							<Route path="/orders" component="Orders" />
-							<Route path="/employees" component="Employees" />
-							<Route path="/customers" component="Customers" />
+							<Route path="/orders" component={Order}/>
+							<Route path="/customers" component={Customers}/>
 
               {/* apps */}
-              <Route path='/kanban' component='Kanban' />
-              <Route path='/editor' component='Editor' />
-              <Route path='/charts' component='Charts' />
-              <Route path='/calendar' component='Calendar' />
-              <Route path='/cards' component='Cards' />
-              <Route path='/color' component='Color' />
+              <Route path='/kanban' component={Kanban}/>
+              <Route path='/editor' component={Editor}/>
+              <Route path='/calendar' component={Calendar} />
+              <Route path='/cards' component={Card}/>
+              <Route path='/color' component={ColorPicker} />
 
               {/* charts */}
               {/* Route for all types of suncfusion charts */}
-              <Route path='/line' component='Line' />
-              <Route path='/bar' component='Bar' />
-              <Route path='/pie' component='Pie' />
-              <Route path='/financial' component='Financial' />
-              <Route path='/area' component='Area' />
-              <Route path='/pyramid' component='Pyramid' />
-              <Route path='/color-mapping' component='ColorMapping' />
-              <Route path='/stack' component='Stack' />
+              <Route path='/line' component={Line}/>
+              <Route path='/bar' component={Bar}/>
+              <Route path='/pie' component={Pie}/>
+              <Route path='/financial' component={Financial} />
+              <Route path='/area' component={Area} />
+              <Route path='/pyramid' component={Pyramid} />
+              <Route path='/color-mapping' component={ColorMapping} />
+              <Route path='/stack' component={Stacked} />
 						</Routes>
 					</div>
 				</div>
