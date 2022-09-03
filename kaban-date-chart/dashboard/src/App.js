@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import {FiSettings} from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-import { Card, Sidebar, Stacked } from './components'
+import { Card, Navbar, Sidebar, Stacked } from './components'
 import { Area, Bar, Calendar, ColorMapping, ColorPicker, Customers, Ecommerce, Editor, Employee, Financial, Kanban, Line, Order, Pie, Pyramid } from './pages'
 
 const App = () => {
@@ -28,10 +28,10 @@ const App = () => {
 					</div>
 					{activeMenu ? (
 						<div className="w-72 fixed dark:bg-secondary-dark-bg bg-white sidebar">
-							sidebar
+							<Sidebar/>
 						</div>
 					) : (
-						<div className="w-0 dark:bg-secondary-dark-bg">hello</div>
+						<div className="w-0 dark:bg-secondary-dark-bg"> <Sidebar/> </div>
 					)}
 					<div
 						// className={
@@ -44,7 +44,7 @@ const App = () => {
 						} `}
 					>
 						<div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-							Navbar
+							<Navbar/>
 						</div>
 					</div>
 					<div>
