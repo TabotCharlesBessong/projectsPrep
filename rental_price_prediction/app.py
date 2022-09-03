@@ -83,7 +83,7 @@ def process_input_data(df_input):
     
     for i in main_df.columns:
         if main_df[i].dtypes == 'float64':
-            print(i, end="\n\n")
+            print(i, "\n\n")
     
     print('SCALING DATA.............')
     df_scaled = scale_data(main_df)
