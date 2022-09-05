@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
+
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../../data/dummy';
-// import { useStateContext } from '../contexts/ContextProvider';
+import { useStateContext } from '../../context/ContextProvider';
 
 const Sidebar = () => {
-  // const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const {  activeMenu, setActiveMenu} = useStateContext();
 
   // const handleCloseSideBar = () => {
   //   if (activeMenu !== undefined && screenSize <= 900) {
   //     setActiveMenu(false);
   //   }
   // };
-  const [activeMenu,setActiveMenu] = useState(true)
   const currentColor = 'red'  
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
