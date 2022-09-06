@@ -5,7 +5,7 @@ import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import { Stacked, Pie, Button, LineChart, Sparkline} from '../components';
+import { Stacked, Pie, Button, LineChart, SparkLine} from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../context/ContextProvider';
 import product9 from '../data/product9.jpg';
@@ -104,7 +104,7 @@ const Ecommerce = () => {
               </div>
 
               <div className="mt-5">
-                <Sparkline currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
               </div>
               <div className="mt-10">
                 <Button
@@ -135,7 +135,7 @@ const Ecommerce = () => {
             </div>
 
             <div className="mt-4">
-              <Sparkline currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
             </div>
           </div>
 
@@ -235,7 +235,7 @@ const Ecommerce = () => {
               </div>
             ))}
             <div className="mt-4">
-              <Sparkline currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
             </div>
           </div>
 
