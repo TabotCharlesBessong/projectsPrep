@@ -1,0 +1,19 @@
+You are an expert JavaScript game developer. 
+
+Please help me build a very simple Super Mario-style platformer using the Kaboom.js game framework. 
+
+Here are my requirements:
+- Use a plain HTML + JavaScript setup (no build tools).
+- Include Kaboom.js via CDN.
+- Create a playable character (a block for now) that can:
+  - Move left and right using the arrow keys.
+  - Jump when the spacebar is pressed.
+- Add a ground platform and basic gravity.
+- Detect collisions so the character doesn’t fall through the ground.
+- Clearly comment every part of the code (since I am a beginner).
+- Keep the code as simple and readable as possible.
+
+Please provide:
+1. A complete `index.html` example.
+2. An explanation for every important line.
+
