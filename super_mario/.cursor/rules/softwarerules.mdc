@@ -1,0 +1,289 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Rules - Best Practices
+
+## General Coding Principles
+- Always write clean, readable, and well-commented code
+- Use meaningful variable and function names that describe their purpose
+- Follow consistent indentation (2 or 4 spaces, no mixing)
+- Keep functions small and focused on a single responsibility
+- Avoid deep nesting - use early returns when possible
+- Write code that is self-documenting through clear naming
+
+## JavaScript Best Practices
+- Use `const` by default, `let` when reassignment is needed, avoid `var`
+- Use arrow functions for short callbacks and methods
+- Prefer template literals over string concatenation: `Hello ${name}` instead of `"Hello " + name`
+- Use destructuring for object and array assignments when appropriate
+- Handle errors gracefully with try-catch blocks
+- Use async/await instead of .then() chains for cleaner async code
+- Avoid global variables - use modules or proper scoping
+
+## HTML/CSS Guidelines
+- Use semantic HTML5 elements (header, nav, main, section, article, footer)
+- Always include alt attributes for images
+- Use CSS custom properties (variables) for consistent theming
+- Prefer CSS Grid and Flexbox over floats for layouts
+- Use BEM naming convention for CSS classes: block__element--modifier
+- Keep CSS organized with logical groupings and comments
+- Use relative units (rem, em, %) instead of fixed pixels when possible
+
+## Game Development Specific
+- Implement a clear game loop structure: update -> render -> repeat
+- Separate game logic from rendering code
+- Use object-oriented or modular patterns for game entities
+- Implement proper collision detection with clear hit boxes
+- Handle input consistently across different browsers
+- Use requestAnimationFrame for smooth animations
+- Cache expensive calculations and reuse when possible
+- Implement proper state management for game states (menu, playing, paused, game over)
+
+## Performance Optimization
+- Minimize DOM manipulation - batch updates when possible
+- Use event delegation for multiple similar elements
+- Debounce expensive operations like API calls or complex calculations
+- Optimize images and assets for web delivery
+- Use lazy loading for non-critical resources
+- Profile and measure performance before optimizing
+- Avoid premature optimization - write clear code first
+
+## Error Handling & Debugging
+- Always validate user input and external data
+- Use meaningful error messages that help identify the problem
+- Implement proper fallbacks for missing features or failed operations
+- Use console.log strategically for debugging, but remove before production
+- Add error boundaries in React applications
+- Handle network failures gracefully with retry mechanisms
+
+## Code Organization
+- Group related functions and variables together
+- Use consistent file and folder naming conventions
+- Separate concerns: HTML structure, CSS styling, JavaScript behavior
+- Create reusable utility functions for common operations
+- Use modules to organize code into logical units
+- Keep configuration separate from implementation code
+
+## Security Considerations
+- Never trust user input - always validate and sanitize
+- Use HTTPS for all network requests
+- Avoid exposing sensitive data in client-side code
+- Implement proper authentication and authorization
+- Use Content Security Policy (CSP) headers when possible
+- Keep dependencies updated and audit for vulnerabilities
+
+## Accessibility (a11y)
+- Ensure keyboard navigation works for all interactive elements
+- Use proper ARIA labels and roles where needed
+- Maintain sufficient color contrast ratios
+- Provide alternative text for images and media
+- Test with screen readers and other assistive technologies
+- Make sure focus indicators are visible and logical
+
+## Version Control & Collaboration
+- Write clear, descriptive commit messages
+- Make small, focused commits that do one thing
+- Use branching strategies appropriate for the project size
+- Review code before merging to main/master branch
+- Document breaking changes and new features
+- Keep sensitive information out of version control
+
+## Testing Guidelines
+- Write unit tests for critical business logic
+- Test edge cases and error conditions
+- Use meaningful test descriptions that explain the expected behavior
+- Mock external dependencies in tests
+- Aim for good test coverage but focus on important code paths
+- Test user interactions and workflows, not just individual functions
+
+## Documentation
+- Comment complex algorithms and business logic
+- Document function parameters and return values
+- Keep README files updated with setup and usage instructions
+- Document API endpoints and data structures
+- Use JSDoc comments for better IDE support
+- Include examples in documentation
+
+## Browser Compatibility
+- Test on multiple browsers (Chrome, Firefox, Safari, Edge)
+- Use progressive enhancement - start with basic functionality
+- Provide polyfills for newer features when targeting older browsers
+- Test on different devices and screen sizes
+- Use feature detection instead of browser detection
+- Gracefully handle unsupported features
+
+## Development Workflow
+- Use a linter (ESLint) and formatter (Prettier) for consistent code style
+- Set up hot reloading for faster development
+- Use a build process to optimize assets for production
+- Implement continuous integration for automated testing
+- Use environment variables for configuration
+- Keep development and production environments similar
+
+## Specific Patterns to Follow
+- Use the Module Pattern or ES6 modules for code organization
+- Implement the Observer Pattern for event-driven architecture
+- Use Factory Functions or Classes for creating similar objects
+- Apply the Single Responsibility Principle to functions and classes
+- Use Dependency Injection for better testability
+- Implement proper error boundaries and fallback mechanisms
+
+## React Native Best Practices
+- Use functional components with hooks instead of class components
+- Implement proper navigation with React Navigation library
+- Use StyleSheet.create() for styles instead of inline styles
+- Optimize images and use appropriate formats (WebP when possible)
+- Handle platform differences with Platform.OS checks
+- Use SafeAreaView for iPhone X+ compatibility
+- Implement proper keyboard handling with KeyboardAvoidingView
+- Use FlatList/VirtualizedList for large data sets instead of ScrollView
+- Handle device orientations and different screen sizes
+- Use AsyncStorage for local data persistence
+- Implement proper error boundaries for crash prevention
+- Use React Native Debugger or Flipper for debugging
+- Test on both iOS and Android devices regularly
+- Use TypeScript for better type safety and development experience
+
+## Ionic Framework Guidelines
+- Choose appropriate UI components from Ionic's component library
+- Use Ionic's theming system with CSS custom properties
+- Implement proper routing with Ionic's router or Angular router
+- Use Capacitor plugins for native device features
+- Handle platform-specific styling with ion-platform classes
+- Optimize for both mobile and desktop experiences
+- Use Ionic's gesture system for touch interactions
+- Implement proper loading states and skeleton screens
+- Use Ionic's storage solutions for data persistence
+- Handle network connectivity changes gracefully
+- Test thoroughly on actual devices, not just browsers
+- Use Ionic DevApp or Capacitor for testing on devices
+- Follow PWA best practices when targeting web platforms
+- Implement proper splash screens and app icons
+
+## Mobile Development Universal Principles
+- Design for touch-first interactions with appropriate touch targets (44x44px minimum)
+- Implement offline-first architecture with proper caching strategies
+- Use responsive design principles for different screen sizes
+- Handle slow network connections with proper loading states
+- Implement proper push notification strategies
+- Use biometric authentication when available and appropriate
+- Handle app lifecycle events (background, foreground, termination)
+- Implement proper deep linking for better user experience
+- Use lazy loading for images and content to improve performance
+- Handle device permissions properly with clear user communication
+- Implement proper data synchronization between device and server
+- Use appropriate local storage solutions (SQLite, Realm, etc.)
+- Test thoroughly on low-end devices for performance
+- Implement proper analytics and crash reporting
+
+## Machine Learning & AI Best Practices
+- Start with data exploration and understanding before modeling
+- Always split data properly: train/validation/test sets
+- Use appropriate evaluation metrics for your problem type
+- Implement proper data preprocessing and feature engineering
+- Handle missing data and outliers appropriately
+- Use cross-validation for robust model evaluation
+- Document data sources, preprocessing steps, and model decisions
+- Version control your datasets, models, and experiments
+- Implement proper model monitoring in production
+- Use appropriate ML frameworks (TensorFlow, PyTorch, scikit-learn)
+- Consider model interpretability and explainability
+- Implement proper bias detection and mitigation strategies
+- Use MLOps practices for model deployment and maintenance
+- Keep models simple when possible - avoid unnecessary complexity
+
+## AI Development Guidelines
+- Define clear success metrics and evaluation criteria upfront
+- Use appropriate datasets and ensure data quality
+- Implement proper data privacy and security measures
+- Consider ethical implications and potential biases
+- Use transfer learning when appropriate to save time and resources
+- Implement proper model versioning and experiment tracking
+- Use containerization (Docker) for consistent deployment environments
+- Implement proper logging and monitoring for AI systems
+- Consider model drift and implement retraining strategies
+- Use appropriate hardware (GPU/TPU) for training and inference
+- Implement proper A/B testing for model comparison
+- Document model limitations and expected performance ranges
+- Use ensemble methods when single models aren't sufficient
+- Implement proper feature stores for consistent data access
+
+## Data Science & ML Engineering
+- Use Jupyter notebooks for exploration, scripts for production
+- Implement proper data validation and quality checks
+- Use configuration files for hyperparameters and settings
+- Implement proper logging throughout the ML pipeline
+- Use appropriate data storage solutions (data lakes, warehouses)
+- Implement proper data lineage tracking
+- Use infrastructure as code for reproducible environments
+- Implement proper model testing (unit tests, integration tests)
+- Use appropriate orchestration tools (Airflow, Kubeflow, MLflow)
+- Implement proper model governance and compliance measures
+- Use appropriate monitoring tools for data and model drift
+- Implement proper backup and disaster recovery strategies
+- Use appropriate security measures for sensitive data
+- Document all decisions and trade-offs made during development
+
+## TensorFlow/PyTorch Specific
+- Use tf.data or PyTorch DataLoader for efficient data loading
+- Implement proper checkpointing for long training runs
+- Use mixed precision training when appropriate for performance
+- Implement proper gradient clipping to prevent exploding gradients
+- Use tensorboard or wandb for experiment tracking and visualization
+- Implement proper model serialization and loading
+- Use appropriate optimizers and learning rate schedules
+- Implement proper regularization techniques (dropout, batch norm)
+- Use appropriate loss functions for your problem type
+- Implement proper early stopping to prevent overfitting
+- Use GPU/TPU efficiently with proper batch sizes
+- Implement proper model quantization for deployment
+- Use appropriate data augmentation techniques
+- Profile your code to identify and fix performance bottlenecks
+
+## AI Ethics & Responsible Development
+- Consider bias in training data and model outputs
+- Implement fairness checks across different demographic groups
+- Ensure transparency in model decision-making processes
+- Respect user privacy and implement data minimization
+- Consider environmental impact of model training and deployment
+- Implement proper consent mechanisms for data usage
+- Document potential risks and limitations clearly
+- Implement human oversight for critical decisions
+- Consider long-term societal impacts of AI systems
+- Ensure accessibility of AI-powered applications
+- Implement proper data governance and retention policies
+- Consider cultural sensitivity in global deployments
+- Implement proper security measures against adversarial attacks
+- Ensure compliance with relevant regulations (GDPR, CCPA, etc.)
+
+## Production ML Systems
+- Implement proper CI/CD pipelines for ML models
+- Use feature flags for gradual model rollouts
+- Implement proper model A/B testing infrastructure
+- Monitor model performance metrics continuously
+- Implement proper alerting for model degradation
+- Use appropriate serving infrastructure (REST APIs, gRPC)
+- Implement proper caching strategies for model predictions
+- Use appropriate load balancing for high-traffic scenarios
+- Implement proper model versioning and rollback strategies
+- Monitor resource usage and optimize for cost efficiency
+- Implement proper data validation in production pipelines
+- Use appropriate scaling strategies (horizontal/vertical)
+- Implement proper disaster recovery for ML systems
+- Document operational procedures and troubleshooting guides
+
+## Code Review Checklist
+- Does the code solve the intended problem?
+- Is the code readable and well-organized?
+- Are there any potential security vulnerabilities?
+- Is error handling implemented properly?
+- Are there any performance concerns?
+- Is the code properly tested?
+- Does it follow established conventions and patterns?
+- For Mobile: Does it handle different screen sizes and orientations?
+- For Mobile: Are touch interactions optimized and accessible?
+- For ML/AI: Is the data handling and model logic clearly documented?
+- For ML/AI: Are appropriate evaluation metrics and validation used?
+- For ML/AI: Are ethical considerations and biases addressed?
