@@ -44,8 +44,9 @@ while True:
     if confidence1 > 0.7 and confidence2 > 0.7:
       cv2.line(blank_image, (int(x1), int(y1)), (int(x2), int(y2)), (255,0,0), 2)
 
-  cv2.imshow("frame", frame)
-  cv2.imshow("frames", blank_image)
+  output = cvzone.stackImages([frame, blank_image], 2, 1)
+  cv2.imshow("frame", output)
+  # cv2.imshow("frames", blank_image)
   if cv2.waitKey(1) & 0xFF == ord('q'):
     break
   
